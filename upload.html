@@ -1,0 +1,93 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>McKinsey & Company Upload Student ID</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Times New Roman', serif;
+    }
+  </style>
+</head>
+<body class="bg-[#071c2c] min-h-screen flex flex-col text-[#071c2c]">
+  <header class="flex justify-between items-center p-4 md:p-6 max-w-7xl mx-auto w-full">
+    <div class="text-left">
+      <h1 class="text-[#071c2c] text-[2rem] md:text-[2.5rem] leading-[1.1] font-normal max-w-[90vw]">
+        McKinsey<br />
+        <span class="inline-block ml-[1.5rem] text-[1.8rem] md:text-[2rem]">&amp; Company</span>
+      </h1>
+    </div>
+    <div class="text-[#071c2c] text-3xl md:text-4xl cursor-pointer" aria-label="User Icon" role="img">
+      <i class="fas fa-user-circle"></i>
+    </div>
+  </header>
+  <main class="flex-grow flex flex-col justify-center items-center px-4 md:px-0 max-w-3xl mx-auto w-full space-y-8 py-8">
+    <!-- Card 1: Upload Instructions -->
+    <section class="bg-white rounded-lg shadow-lg p-8 w-full">
+      <h2 class="text-3xl font-semibold mb-4 text-[#071c2c] text-center">How to Upload Your Student ID Card</h2>
+      <p class="text-[#071c2c] text-lg leading-relaxed">
+        Please ensure your student ID card is clearly visible and all details are legible. The uploaded image should be in JPG, PNG, or PDF format and not exceed 5MB in size. Make sure the photo is well-lit and without any glare or shadows. This helps us verify your identity quickly and accurately.
+      </p>
+    </section>
+
+    <!-- Card 2: Upload Form -->
+    <section class="bg-white rounded-lg shadow-lg p-8 w-full">
+      <form id="uploadForm" class="flex flex-col space-y-6">
+        <label for="studentId" class="text-[#071c2c] text-lg font-medium">Enter Student ID Number</label>
+        <input
+          type="text"
+          id="studentId"
+          name="studentId"
+          placeholder="Enter your student ID number"
+          class="border border-[#071c2c] rounded-md px-4 py-2 text-[#071c2c] focus:outline-none focus:ring-2 focus:ring-[#071c2c]"
+          required
+        />
+
+        <label for="studentIdFile" class="text-[#071c2c] text-lg font-medium">Upload Student ID Card</label>
+        <input
+          type="file"
+          id="studentIdFile"
+          name="studentIdFile"
+          accept=".jpg,.jpeg,.png,.pdf"
+          class="text-[#071c2c]"
+          required
+        />
+
+        <button
+          type="submit"
+          id="proceedBtn"
+          disabled
+          class="w-full bg-[#071c2c] text-white font-semibold py-3 rounded-md hover:bg-[#0a2a44] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          Proceed
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <script>
+    const studentIdInput = document.getElementById('studentId');
+    const fileInput = document.getElementById('studentIdFile');
+    const proceedBtn = document.getElementById('proceedBtn');
+    const form = document.getElementById('uploadForm');
+
+    function validateForm() {
+      const studentIdValid = studentIdInput.value.trim() !== '';
+      const fileValid = fileInput.files.length > 0;
+      proceedBtn.disabled = !(studentIdValid && fileValid);
+    }
+
+    studentIdInput.addEventListener('input', validateForm);
+    fileInput.addEventListener('change', validateForm);
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Here you could add upload logic if needed
+      window.location.href = 'test.html';
+    });
+  </script>
+</body>
+</html>

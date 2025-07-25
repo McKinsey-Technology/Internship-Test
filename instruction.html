@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>McKinsey & Company Instructions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Times New Roman', serif;
+    }
+  </style>
+</head>
+<body class="bg-[#071c2c] min-h-screen flex flex-col text-[#071c2c]">
+  <header class="flex justify-between items-center p-4 md:p-6 max-w-7xl mx-auto w-full">
+    <div class="text-left">
+      <h1 class="text-[#071c2c] text-[2rem] md:text-[2.5rem] leading-[1.1] font-normal max-w-[90vw]">
+        McKinsey<br />
+        <span class="inline-block ml-[1.5rem] text-[1.8rem] md:text-[2rem]">&amp; Company</span>
+      </h1>
+    </div>
+    <div class="text-[#071c2c] text-3xl md:text-4xl cursor-pointer" aria-label="User Icon" role="img">
+      <i class="fas fa-user-circle"></i>
+    </div>
+  </header>
+  <main class="flex-grow flex flex-col justify-center items-center px-4 md:px-0 max-w-3xl mx-auto w-full">
+    <section class="bg-white rounded-lg shadow-lg p-8 w-full">
+      <h2 class="text-3xl font-semibold mb-6 text-[#071c2c] text-center">Instructions for the Test</h2>
+      <ul class="list-disc list-inside space-y-3 text-lg leading-relaxed mb-8 text-[#071c2c]">
+        <li>Read all questions carefully before answering.</li>
+        <li>Manage your time efficiently; the test duration is limited.</li>
+        <li>Do not refresh or close the browser during the test.</li>
+        <li>Ensure a stable internet connection throughout the test.</li>
+        <li>Click "Proceed" only when you are ready to start.</li>
+      </ul>
+      <form id="instructionForm" class="flex flex-col space-y-6">
+        <label class="inline-flex items-center space-x-3 cursor-pointer text-[#071c2c]">
+          <input type="checkbox" id="confirm" class="form-checkbox h-5 w-5 text-[#071c2c] rounded focus:ring-2 focus:ring-[#071c2c]" />
+          <span class="text-lg select-none">I confirm that I have read and understood the instructions</span>
+        </label>
+        <button id="proceedBtn" type="button" disabled class="w-full bg-[#071c2c] text-white font-semibold py-3 rounded-md hover:bg-[#0a2a44] transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+          Proceed
+        </button>
+      </form>
+    </section>
+  </main>
+  <script>
+    const checkbox = document.getElementById('confirm');
+    const proceedBtn = document.getElementById('proceedBtn');
+
+    checkbox.addEventListener('change', () => {
+      proceedBtn.disabled = !checkbox.checked;
+    });
+
+    proceedBtn.addEventListener('click', () => {
+      if (checkbox.checked) {
+        window.location.href = 'upload.html';
+      }
+    });
+  </script>
+</body>
+</html>
